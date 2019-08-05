@@ -6,21 +6,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd2d0a41-7c33-4db4-8c44-acdc8cd3fec2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_for_Android.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_for_Android.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/ChannelResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/ChannelResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/EventResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/EventResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/MethodResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/MethodResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/TaskContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/TaskContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gpsy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gpsy.iml" afterDir="false" />
-    </list>
+    <list default="true" id="cd2d0a41-7c33-4db4-8c44-acdc8cd3fec2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -60,8 +46,8 @@
       <file leaf-file-name="GpsyPlugin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/GpsyPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="238">
+              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,13 +55,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnrUpdatesUsingLocationManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManager.java">
+      <file leaf-file-name="SnrUpdatesUsingLocationManagerTask.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManagerTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+            <state relative-caret-position="204">
+              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskContext.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/TaskContext.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1101#1102#0" expanded="true" />
+                <element signature="e#1134#1135#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SnrOptions.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/SnrOptions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#1344#1345#0" expanded="true" />
+                <element signature="e#1375#1376#0" expanded="true" />
+                <element signature="e#1414#1415#0" expanded="true" />
+                <element signature="e#1451#1452#0" expanded="true" />
+                <element signature="e#1505#1506#0" expanded="true" />
+                <element signature="e#1555#1556#0" expanded="true" />
+                <element signature="e#1592#1593#0" expanded="true" />
+                <element signature="e#1627#1628#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,31 +122,78 @@
       <list>
         <option value="$PROJECT_DIR$/android/src/main/Gpsy.java" />
         <option value="$PROJECT_DIR$/android/Gpsy.java" />
-        <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManagerTask.java" />
         <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/Task.java" />
         <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/TaskContext.java" />
         <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/ChannelResponse.java" />
         <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/EventResponse.java" />
         <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/MethodResponse.java" />
         <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManager.java" />
+        <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/SnrOptions.java" />
+        <option value="$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManagerTask.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="615" />
-    <option name="y" value="3" />
-    <option name="width" value="1400" />
-    <option name="height" value="998" />
+    <option name="x" value="579" />
+    <option name="width" value="1311" />
+    <option name="height" value="973" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy_android" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="gpsy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="gpsy" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="gpsy" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="wrapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gpsy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="gpsy_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+              <item name="gpsy" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,6 +247,15 @@
               <item name="src/main" type="cbb8eebc:String" user="src/main" />
               <item name="java" type="cbb8eebc:String" user="java" />
               <item name="dev/dom/gpsy" type="cbb8eebc:String" user="dev/dom/gpsy" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gpsy_android" type="cbb8eebc:String" user="gpsy_android" />
+              <item name="android" type="cbb8eebc:String" user="android" />
+              <item name="src/main" type="cbb8eebc:String" user="src/main" />
+              <item name="java" type="cbb8eebc:String" user="java" />
+              <item name="dev/dom/gpsy" type="cbb8eebc:String" user="dev/dom/gpsy" />
+              <item name="data" type="cbb8eebc:String" user="data" />
             </path>
           </expand>
           <select />
@@ -289,7 +376,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="615" y="3" width="1400" height="998" extended-state="0" />
+    <frame x="579" y="0" width="1311" height="973" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
@@ -301,15 +388,15 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35178778" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35178778" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32871974" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33847982" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37490007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -389,39 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/TaskContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-782">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1045#1046#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="8" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/EventResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -446,6 +500,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/GpsyPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/SnrOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#1344#1345#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1414#1415#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1505#1506#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
+            <element signature="e#1592#1593#0" expanded="true" />
+            <element signature="e#1627#1628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/data/wrapper/ChannelResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -456,20 +547,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/GpsyPlugin.java">
+    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/TaskContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1101#1102#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManager.java">
+    <entry file="file://$PROJECT_DIR$/android/src/main/java/dev/dom/gpsy/tasks/SnrUpdatesUsingLocationManagerTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        <state relative-caret-position="204">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
