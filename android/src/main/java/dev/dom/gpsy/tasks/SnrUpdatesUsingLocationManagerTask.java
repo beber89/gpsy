@@ -1,14 +1,22 @@
 package dev.dom.gpsy.tasks;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.location.Criteria;
+import android.location.GnssStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 
+import android.content.Context;
+import io.flutter.plugin.common.PluginRegistry;
+
 import dev.dom.gpsy.data.SnrOptions;
+import android.app.Activity;
 
 
 import java.lang.annotation.Retention;
@@ -17,71 +25,35 @@ import java.util.List;
 import java.util.Map;
 
 
-public class SnrUpdatesUsingLocationManagerTask implements LocationListener {
-    private final boolean mStopAfterFirstLocationUpdate;
-    private Location mBestLocation;
-    private String mActiveProvider;
 
-    final static int GEOLOCATION_ACCURACY_LOWEST = 0;
-    final static int GEOLOCATION_ACCURACY_LOW = 1;
-    final static int GEOLOCATION_ACCURACY_MEDIUM = 2;
-    final static int GEOLOCATION_ACCURACY_HIGH = 3;
-    final static int GEOLOCATION_ACCURACY_BEST = 4;
-    final static int GEOLOCATION_ACCURACY_BEST_FOR_NAVIGATION = 5;
+public class SnrUpdatesUsingLocationManagerTask extends Task<SnrOptions> {
+    private final Context mAndroidContext;
+    final SnrOptions mSnrOptions;
+    private float mSatSnr;
+    LocationManager mLocationManager;
+    GnssStatus.Callback mGnssStatusCallback;
 
 
-
-    SnrUpdatesUsingLocationManagerTask(TaskContext<SnrOptions> context, boolean stopAfterFirstLocationUpdate) {
+    SnrUpdatesUsingLocationManagerTask(TaskContext<SnrOptions> context) {
         super(context);
 
-        mStopAfterFirstLocationUpdate = stopAfterFirstLocationUpdate;
+        PluginRegistry.Registrar registrar = context.getRegistrar();
+        mAndroidContext = registrar.activity() != null ? registrar.activity() : registrar.activeContext();
+        mSnrOptions = context.getOptions();
+        atStart();
     }
 
     @Override
     public void startTask() {
-
-        LocationManager locationManager = getLocationManager();
-
-        // Make sure we remove existing listeners before we register a new one
-        locationManager.removeUpdates(this);
-
-        // Try to get the best possible location provider for the requested accuracy
-        mActiveProvider = getBestProvider(locationManager, mLocationOptions.getAccuracy());
-
-        if (Strings.isEmptyOrWhitespace(mActiveProvider)) {
-            handleError();
-
-            return;
-        }
-
-        mBestLocation = locationManager.getLastKnownLocation(mActiveProvider);
-
-        // If we are listening to multiple location updates we can go ahead
-        // and report back the last known location (if we have one).
-        if (mStopAfterFirstLocationUpdate && mBestLocation != null) {
-            reportLocationUpdate(mBestLocation);
-            return;
-        }
-
-        Looper looper = Looper.myLooper();
-        if (looper == null) {
-            looper = Looper.getMainLooper();
-        }
-
-        locationManager.requestLocationUpdates(
-                mActiveProvider,
-                mLocationOptions.getTimeInterval(),
-                mLocationOptions.getDistanceFilter(),
-                this,
-                looper);
+        reportLocationUpdate(mSatSnr);
     }
 
     @Override
     public void stopTask() {
+        mLocationManager.unregisterGnssStatusCallback(
+                mGnssStatusCallback
+        );
         super.stopTask();
-
-        LocationManager locationManager = getLocationManager();
-        locationManager.removeUpdates(this);
     }
 
     private void handleError() {
@@ -91,105 +63,32 @@ public class SnrUpdatesUsingLocationManagerTask implements LocationListener {
                 null);
     }
 
-    private String getBestProvider(LocationManager locationManager, @GeolocationAccuracy int accuracy) {
-        Criteria criteria = new Criteria();
 
-        criteria.setBearingRequired(false);
-        criteria.setAltitudeRequired(false);
-        criteria.setSpeedRequired(false);
-
-        switch (accuracy) {
-            case GEOLOCATION_ACCURACY_LOWEST:
-                criteria.setAccuracy(Criteria.NO_REQUIREMENT);
-                criteria.setHorizontalAccuracy(Criteria.NO_REQUIREMENT);
-                criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
-                break;
-            case GEOLOCATION_ACCURACY_LOW:
-                criteria.setAccuracy(Criteria.ACCURACY_COARSE);
-                criteria.setHorizontalAccuracy(Criteria.ACCURACY_LOW);
-                criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
-                break;
-            case GEOLOCATION_ACCURACY_MEDIUM:
-                criteria.setAccuracy(Criteria.ACCURACY_COARSE);
-                criteria.setHorizontalAccuracy(Criteria.ACCURACY_MEDIUM);
-                criteria.setPowerRequirement(Criteria.POWER_MEDIUM);
-                break;
-            case GEOLOCATION_ACCURACY_HIGH:
-            case GEOLOCATION_ACCURACY_BEST:
-            case GEOLOCATION_ACCURACY_BEST_FOR_NAVIGATION:
-                criteria.setAccuracy(Criteria.ACCURACY_FINE);
-                criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
-                criteria.setPowerRequirement(Criteria.POWER_HIGH);
-                break;
-        }
-
-        String provider = locationManager.getBestProvider(criteria, true);
-
-        if (Strings.isEmptyOrWhitespace(provider)) {
-            List<String> providers = locationManager.getProviders(true);
-            if (providers != null && providers.size() > 0)
-                provider = providers.get(0);
-        }
-
-        return provider;
-    }
-
-    @Override
-    public synchronized void onLocationChanged(Location location) {
-        float desiredAccuracy = accuracyToFloat(mLocationOptions.getAccuracy());
-        if (LocationUsingLocationManagerTask.isBetterLocation(location, mBestLocation) && location.getAccuracy() <= desiredAccuracy) {
-            mBestLocation = location;
-            reportLocationUpdate(location);
-
-            if (mStopAfterFirstLocationUpdate) {
-                this.stopTask();
+    private void atStart() {
+        mLocationManager = (LocationManager) mAndroidContext.getSystemService(Context.LOCATION_SERVICE);
+        mGnssStatusCallback = new GnssStatus.Callback() {
+            @Override
+            public void onSatelliteStatusChanged(GnssStatus status) {
+                System.out.println("Callback");
+                int count = status.getSatelliteCount();
+                System.out.println(count);
+                if (count >= 0) {
+                    mSatSnr = status.getCn0DbHz(count);
+                    System.out.println(mSatSnr);
+                } else {
+                    mSatSnr = -10;
+                }
             }
-        }
-    }
+        };
+            mLocationManager.registerGnssStatusCallback(mGnssStatusCallback);
 
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle bundle) {
-        if (status == LocationProvider.AVAILABLE) {
-            onProviderEnabled(provider);
-        } else if (status == LocationProvider.OUT_OF_SERVICE) {
-            onProviderDisabled(provider);
-        }
 
     }
 
-    @Override
-    public void onProviderEnabled(String provider) {
 
-    }
 
-    @Override
-    public void onProviderDisabled(String provider) {
-        if (provider.equals(mActiveProvider)) {
-            getTaskContext().getResult().error(
-                    "ERROR_UPDATING_LOCATION",
-                    "The active location provider was disabled. Check if the location services are enabled in the device settings.",
-                    null);
-        }
-    }
+    private void reportLocationUpdate(float snr) {
 
-    private float accuracyToFloat(@GeolocationAccuracy int accuracy) {
-        switch (accuracy) {
-            case GEOLOCATION_ACCURACY_LOWEST:
-            case GEOLOCATION_ACCURACY_LOW:
-                return 500;
-            case GEOLOCATION_ACCURACY_MEDIUM:
-                return 250;
-            case GEOLOCATION_ACCURACY_BEST:
-            case GEOLOCATION_ACCURACY_BEST_FOR_NAVIGATION:
-                return 50;
-            default:
-                return 100;
-        }
-    }
-
-    private void reportLocationUpdate(Location location) {
-        Map<String, Object> locationMap = PositionMapper.toHashMap(location);
-
-        getTaskContext().getResult().success(locationMap);
+        getTaskContext().getResult().success(snr);
     }
 }

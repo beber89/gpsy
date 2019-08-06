@@ -13,6 +13,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+  double snr = -2;
+  int _count = -2;
 
   @override
   void initState() {
@@ -48,9 +50,24 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: _buildScaffold()
         ),
       ),
     );
   }
+  Widget _buildScaffold() => Column(children: <Widget>[
+      Text('Running on: $_platformVersion\n'),
+      RaisedButton(onPressed: ()=>setState((){
+        Gpsy.gpsyFunction.then((num)=>snr=num);
+      }),
+      child: Text("snr"),
+      ),
+    Text(snr.toString()),
+    RaisedButton(onPressed: ()=>setState((){
+        Gpsy.countSatellites.then((num)=>_count=num);
+      }),
+      child: Text("count"),
+      ),
+    Text(_count.toString()),
+    ]);
 }
